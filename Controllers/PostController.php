@@ -10,10 +10,16 @@
         $this->model = new PostModel();
     }
 
-    function showAllPosts()
+    public function showAllPosts()
     {
        $result = $this->model->getAllPosts();
        return $result;
+    }
+
+    public function showAllPostsById($id)
+    {
+        $result = $this->model->getPostById($id);
+        return $result;
     }
     
    }

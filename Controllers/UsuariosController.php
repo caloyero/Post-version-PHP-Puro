@@ -18,5 +18,11 @@
 
       return $result;
    }
+
+   public function showUsuariosForId($id)
+   {
+      $result = $this->model->getUsuariosForId($id);
+      return $result;
+   }
    }
 ?>

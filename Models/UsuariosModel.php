@@ -16,6 +16,17 @@
         $respuesta = $this->modelo->getConexion()->query($consulta);
         return $respuesta->fetch_all(MYSQLI_ASSOC);// el metodo fetch_all() se utiiza para una consulta que va a devolver mas de un registro
     }
+
+    public function getUsuariosForId($id)
+    {
+        $consulta = "SELECT * FROM usuarios WHERE id = ?";
+        $stmt = $this->modelo->getConexion()->prepare($consulta);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        return $resultado->fetch_assoc();
+        
+    }
    }
 
 ?>

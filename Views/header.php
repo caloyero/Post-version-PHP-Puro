@@ -8,10 +8,10 @@
 <nav class="nav">
 <img class="logo-menu" src="../Images/images/logo.png"/>
     <ul class="list-menu">
-        <li><a class=""><img class="icon" src="../Images/images/home.png"/></a></li>
-        <li><a class=""><img class="icon" src="../Images/images/usuario.png"/></a></li>
-        <li><a class=""><img class="icon" src="../Images/images/campana-de-notificacion.png"/></a></li>
-        <li><a class=""><img class="icon" src="../Images/images/chat (1).png"/></a></li>
+        <li><a class=""  href ="./home.php"><img class="icon" src="../Images/images/home.png"/></a></li>
+        <li><a class="" href ="./perfilOfUserView.php?id=1"><img class="icon" src="../Images/images/usuario.png"/></a></li>
+        <li><a class="" href ="./notificacionesView.php"><img class="icon" src="../Images/images/campana-de-notificacion.png"/></a></li>
+        <li><a class="" href ="./chatView.php"><img class="icon" src="../Images/images/chat (1).png"/></a></li>
     </ul>
 </nav>
 </head>
