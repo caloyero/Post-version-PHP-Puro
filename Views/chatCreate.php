@@ -11,12 +11,13 @@ include('./header.php');
                 <?php
                 include('../Controllers/ChatsController.php');
 
-                $id =/*  $_GET['id'] */1;
+                $id_receptor = $_GET['id_receptor'];
+                $id_creador = $_GET['id'];
                      $chats = new ChatsController();
-                     $chat = $chats->showChatsById($id);
-                      $id_usuario = $id;
+                    /*  $chatCreate = $chats->formCreateChats($id,$mesaje,$id_creador,$id_receptor,$time); */
+                    ?>
                     
-                echo "<div class'chat-user-info'>
+                <div class='chat-user-info'>
                          <p></p>
                          <img
                            class='chat-user-info-image'
@@ -24,8 +25,8 @@ include('./header.php');
                       </div>
 
             </div>
-            <div class='container-chat'>";
-            for ($i = 0; $i < count($chat); $i++)
+            <div class='container-chat'>
+            <!-- for ($i = 0; $i < count($chat); $i++)
             {   
                 if($id_usuario ==$chat[$i]['id_creador'])
                 {
@@ -38,9 +39,16 @@ include('./header.php');
                 }
              ;
                  
-            }
-            "</div>"
-            ?>
+            } -->
+
+            <form action="" method="post">
+                <input type="hidden" type="number" name="id_creador" value= "<?=$id_creador?>" />
+                <input type="hidden" type="number" name="id_recetor" value= "<?=$id_creador?>" />
+                <input type="text" name="mensaje" name="mensaje" />
+                <input type="submit" name="crear" value="Enviar"/>
+            </form>
+            </div>
+           
                
         </div>
     </section>

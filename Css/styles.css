@@ -100,7 +100,8 @@ h1
 
  nav
 {
-    margin-top: 1px;
+    margin-top: -10px;
+    margin-bottom: 10px;
     background-color: var(--Primario) ;
     color: #f7f7f7;
     float: right;
@@ -108,8 +109,9 @@ h1
     justify-content: flex-start; 
     border: solid;
     width: 100%;
-    padding: 0px;
+    /* padding: 0px; */
     align-items: center;
+    position: fixed;
    
 } 
 
@@ -315,6 +317,8 @@ h6
 }
 .user-name
 {
+   
+   
 
    /*  margin-top: 7%; */
     margin-left: 10%;
@@ -336,12 +340,14 @@ h6
 {
     display: flex;
     width: 30%;
-    height: 100%;
+    height: 80%;
     flex-direction: column;
     background-color: var(--Secundario);
     margin-left: 5%;
-    margin-top: 4%;
+    margin-top: 7%;
     border-radius: 15px;
+    position: fixed;
+    overflow: scroll;
 }
 .user-home > h2
 {
@@ -351,24 +357,47 @@ h6
 .user-home-list
 {
     display: flex;
+    /* width: 100%; */
     padding-left: 5%;
     padding-right: 5%;
     margin: 3%;
-    align-items: flex-start;
+    justify-content: space-around;
+     /* align-items: flex-start;  */
+   /*  background-color: #f5f6f7; */
+}
 
-  
+.user-home-list a
+{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 5px;
+    overflow: auto;
+    color: #fff;
+    width: 80%;
+    padding: 3%;
+    border-radius: 8% 35%;
+}
+.user-home-list a:hover
+{
+    background-color: var(--Primario);
+}
+
+.user-home-list p{
+    float: right;
+    margin-left: 5px;
 }
 
 .container-list-post
 {
     display: flex;
+
    
 }
 .container-list
 {
     display: flex;
     flex-direction: column;
-    
+    margin-left: 35%;
     min-width: 70%;
    
 }
@@ -382,8 +411,8 @@ h6
     max-width: 700px;
     height: 30%;
     margin: auto;
-    margin-top: 1%;
-    margin-bottom: 3%;
+    margin-top: 13%;
+    /* margin-bottom: 3%; */
     background-color: #fff;
     border-radius: 20px;
 }

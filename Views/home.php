@@ -9,18 +9,20 @@ include('./header.php');
   <section class="container-home">
     <div class="user-home">
       <h2>Contactos</h2>
-
+<a></a>
       <?php
 
       include('../Controllers/UsuariosController.php');
       $usuariosView = new UsuariosController();
-      $result = $usuariosView->showAllUsuarios();
+      $result = $usuariosView->showUsuariosListByCreateChat();
+
 
       for ($i = 0; $i < count($result); $i++) {
         echo  '<div class="user-home-list">
-          <a>
+          <a   href="./chatCreate.php?id&id_receptor=' . $result[$i]['id'] . '">
         <img class="chat-user-info-image" src="' . $result[$i]['foto_de_perfil'] . '" />
-        <div>' . $result[$i]["nombre"] . '</div> </a></div>';
+        <p>' . $result[$i]["nombre"] . '</p>  
+        <p>' . $result[$i]["apellido"] . '</p> </a></div>';
       };
       ?>
     </div>

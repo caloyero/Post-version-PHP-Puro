@@ -24,5 +24,11 @@
       $result = $this->model->getUsuariosForId($id);
       return $result;
    }
+
+   public function showUsuariosListByCreateChat()
+   {
+      $respuesta = $this->model->getUsuariosListByCreateChat();
+      return $respuesta;
+   }
    }
 ?>

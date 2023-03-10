@@ -27,6 +27,14 @@
         return $resultado->fetch_assoc();
         
     }
+
+    public function getUsuariosListByCreateChat()
+    {
+        $consult ="SELECT id,nombre,apellido,foto_de_perfil FROM usuarios";
+        $respuesta = $this->modelo->getConexion()->query($consult);
+        return $respuesta ->fetch_all(MYSQLI_ASSOC);
+    }
    }
 
+   
 ?>
