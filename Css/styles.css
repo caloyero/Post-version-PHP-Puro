@@ -568,6 +568,36 @@ h6
     border-radius: 10px;
     overflow: hidden;
 }
+.chat-show-mensajes
+{
+    /* height: 90%; */
+}
+.chat-formulario
+{
+    width: 80%;
+    position:absolute;
+    bottom: 10px;
+   
+}
+
+.input-mensaje
+{
+    margin-left: 2%;
+    width: 40%;
+    height: 25px;
+    border-radius: 20px;
+    border: 0;
+}
+
+.input-submit
+{
+    margin-left: 1rem;
+    background-color: var(--Secundario);
+    padding: 7px;
+    border-radius: 0rem 30rem 10rem;
+    color: #fff;
+    border: 0;
+}
 .container-list-perfil
 {
     width:45%;

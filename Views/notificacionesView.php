@@ -18,24 +18,22 @@ include('./header.php');
             $notificaciones = $consulta->showAllNotificaciones();
 
             for ($i = 0; $i < count($notificaciones); $i++) {
+            ?>
 
 
-                echo "<div class='container-notificaciones'>
-            <div>
-                <img
-                    class='fotoDePerfil-post'
-                    src='" . $notificaciones[$i]['foto_de_perfil'] . "'}
-                /> 
-                <p class='notificacion-reaccion'>👍</p>
-            </div>
-               
-                <div class='notificacion-text'>
-                <p class='user-text-post'>" . $notificaciones[$i]['nombre'] . " </p>
-                    <p class='notificacion-parrafo'>Reacciono a tu post</p>
+                <div class='container-notificaciones'>
+                    <div>
+                        <img class='fotoDePerfil-post' src='<?= $notificaciones[$i][' foto_de_perfil'] ?>' />
+                        <p class='notificacion-reaccion'>👍</p>
+                    </div>
+
+                    <div class='notificacion-text'>
+                        <p class='user-text-post'><?= $notificaciones[$i]['nombre'] ?></p>
+                        <p class='notificacion-parrafo'>Reacciono a tu post</p>
+                    </div>
+
                 </div>
-               
-    </div>";
-            }
+            <?php    }
 
             ?>
 

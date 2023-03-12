@@ -28,6 +28,17 @@
         
     }
 
+    public function getUsuariosByIdChat($id)
+    {
+        $consulta = "SELECT nombre,apellido,foto_de_perfil FROM usuarios WHERE id = ?";
+        $stmt = $this->modelo->getConexion()->prepare($consulta);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+        return $resultado->fetch_assoc();
+        
+    }
+
     public function getUsuariosListByCreateChat()
     {
         $consult ="SELECT id,nombre,apellido,foto_de_perfil FROM usuarios";

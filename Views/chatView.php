@@ -15,8 +15,8 @@ include('./header.php');
                      $chats = new ChatsController();
                      $chat = $chats->showChatsById($id);
                       $id_usuario = $id;
-                    
-                echo "<div class'chat-user-info'>
+                    ?>
+                <div class='chat-user-info'>
                          <p></p>
                          <img
                            class='chat-user-info-image'
@@ -24,7 +24,8 @@ include('./header.php');
                       </div>
 
             </div>
-            <div class='container-chat'>";
+            <div class='container-chat'>
+                <?php
             for ($i = 0; $i < count($chat); $i++)
             {   
                 if($id_usuario ==$chat[$i]['id_creador'])

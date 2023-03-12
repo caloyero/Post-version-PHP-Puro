@@ -25,6 +25,12 @@
       return $result;
    }
 
+   public function showUsuariosByIdChat($id)
+   {
+      $result = $this->model->getUsuariosByIdChat($id);
+      return $result;
+   }
+
    public function showUsuariosListByCreateChat()
    {
       $respuesta = $this->model->getUsuariosListByCreateChat();
