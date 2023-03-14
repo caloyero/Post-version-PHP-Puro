@@ -21,6 +21,12 @@
         $result = $this->model->getPostById($id);
         return $result;
     }
+
+    public function postearPost($titulo, $contenido, $usuario_id, $likes, $imagen, $notificaciones_id)
+    {
+        $result = $this->model->createPost($titulo, $contenido, $usuario_id, $likes, $imagen, $notificaciones_id);
+        return $result;
+    }
     
    }
 ?>

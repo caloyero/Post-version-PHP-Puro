@@ -45,6 +45,14 @@
         $respuesta = $this->modelo->getConexion()->query($consult);
         return $respuesta ->fetch_all(MYSQLI_ASSOC);
     }
+
+    public function getUsuariosAunt($email, $password)
+    {
+          $consulta ="SELECT * FROM usuarios WHERE email = '$email' and password = '$password'";
+          $respuesta = $this->modelo->getConexion()->query($consulta);
+          return $respuesta ->fetch_assoc();
+    }
+    
    }
 
    

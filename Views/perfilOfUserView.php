@@ -2,6 +2,15 @@
 <html lang="en">
 <?php
 include('./header.php');
+session_start();
+$id = $_SESSION['id_usuario'];
+if($id == null || empty($id))
+{
+   
+   header('location:Login.php');
+   die();
+  
+}
 ?>
 
 <body>
@@ -9,7 +18,6 @@ include('./header.php');
     //<section class="container-perfil">
         <section class="">
             <?php
-            $id = $_GET['id'];
             include("../Controllers/UsuariosController.php");
             $usuarios = new UsuariosController();
             $usuarioPerfil = $usuarios->showUsuariosForId($id);
@@ -18,7 +26,7 @@ include('./header.php');
             ?>
 
 
-            <div class="container-fotoDePortada" style="background-image: url('<?= $usuarioPerfil['foto_de_portada'] ?>')">
+            <div class="container-fotoDePortada" style="background-image: url('/* <?= $usuarioPerfil['foto_de_portada'] ?> */')">
 
                 <div class="container-perfil-images">
                     <img class="fotoDePortada" src="<?= $usuarioPerfil['foto_de_portada'] ?>" />
@@ -31,12 +39,15 @@ include('./header.php');
                 </div>
                 <div class="user-info1">
                     <h3>INFO</h3>
-                    <p><?= $usuarioPerfil['nombre'] ?></p>
+                    <p class="usuario-name"><?= $usuarioPerfil['nombre'] ?></p>
                     <p><?= $usuarioPerfil['apellido'] ?></p>
                     <p><?= $usuarioPerfil['edad'] ?></p>
+                    <button><a href="../Config/cerrarSession.php">Cerrar Sesion</a></button>
+                    <button><a href="./creatPost.php">Crear Post</a></button>
+                    
                 </div>
 
-            </div>';
+            </div>
 
             <div>
                 <div class="container-post">
@@ -46,22 +57,23 @@ include('./header.php');
                     $post = new PostController();
 
                     $postByUsuarios = $post->showAllPostsById($id);
-                    foreach ($postByUsuarios as $posts) :
+                    foreach ($postByUsuarios as $posts){
+                        
                     ?>
 
                         <div class="head-post">
-                            <img class="fotoDePerfil-post" src="<?php $posts->foto_de_perfil ?>" />
-                            <p class="nombreDePerfil-post"><?php $posts['nombre'] ?></p>
+                            <img class="fotoDePerfil-post" src="<?= $posts["foto_de_perfil"] ?>" />
+                            <p class="nombreDePerfil-post"><?=$posts['nombre'] ?></p>
                         </div>
                         <div class="container-imagen-post">
-                            <img class="imagen-post" src={post.imagen} />
+                            <img class="imagen-post" src="<?=$posts["imagen"]?>" />
                         </div>
                         <div class="container-contenido">
-                            <h2>{post.titulo}</h2>
-                            <p>{post.contenido}</p>
+                            <h2><?=$posts["titulo"]?></h2>
+                            <p><?=$posts["contenido"]?></p>
                         </div>
                         <div class="comentarios-count">
-                            <div>👍{post.likes}</div>
+                            <div>👍<?=$posts["likes"]?></div>
                             <div>Comentarios</div>
                         </div>
                         <div class="comentarios-count">
@@ -69,7 +81,7 @@ include('./header.php');
                             <div> 💬 Comentarios</div>
                             <div>✈️ Compartir</div>
                         </div>
-                    <?php endforeach; ?>
+                    <?php } ?>
                 </div>
             </div>
         </section>

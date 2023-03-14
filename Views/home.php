@@ -2,6 +2,16 @@
 <html lang="en">
 <?php
 include('./header.php');
+
+session_start();
+$id = $_SESSION['id_usuario'];
+if($id == null || empty($id))
+{
+  
+   header('location:Login.php');
+   die();
+   
+}
 ?>
 
 <body>
@@ -16,10 +26,9 @@ include('./header.php');
       $usuariosView = new UsuariosController();
       $result = $usuariosView->showUsuariosListByCreateChat();
 
-
       for ($i = 0; $i < count($result); $i++) { ?>
         <div class="user-home-list">
-          <a href="./chatCreate.php?id&id_receptor=' <?= $result[$i]['id'] ?>">
+          <a href="./chatCreate.php?id_receptor=<?= $result[$i]['id'] ?>">
             <img class="chat-user-info-image" src="<?= $result[$i]['foto_de_perfil'] ?>" />
             <p><?= $result[$i]["nombre"] ?></p>
             <p><?= $result[$i]["apellido"] ?></p>
@@ -35,7 +44,7 @@ include('./header.php');
 
       for ($i = 0; $i < count($result); $i++) { ?>
 
-        echo '
+  
 
         <div class="container-post">
           <div class="head-post">
@@ -65,7 +74,7 @@ include('./header.php');
             </ul>
           </div>
         </div>
-        ';
+        
       <?php }
 
       ?>
