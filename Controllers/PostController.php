@@ -27,6 +27,19 @@
         $result = $this->model->createPost($titulo, $contenido, $usuario_id, $likes, $imagen, $notificaciones_id);
         return $result;
     }
+
+    public function showLikes($id_post)
+    {
+        $result = $this->model->listLikes($id_post);
+        return $result;
+    }
+
+    public function sumarLikes($id_post,$likes)
+    {
+        
+        $result = $this->model->darLikes($id_post,$likes);
+        return $result;
+    }
     
    }
 ?>

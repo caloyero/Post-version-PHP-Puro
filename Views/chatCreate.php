@@ -34,7 +34,7 @@ if ($id == null || empty($id)) {
                 <div class='chat-user-info'>
                     <p><?= $perfil['nombre'] ?></p>
                     <p><?= $perfil['apellido'] ?></p>
-                    <img class='chat-user-info-image' src="<?= $perfil['foto_de_perfil'] ?>" />
+                    <img class='chat-user-info-image' src="../ImagenPerfil/<?= $perfil['foto_de_perfil'] ?>" />
                 </div>
                 <div class='chat-user-info2'>
                     <p><?= $perfil_receptor['nombre'] ?></p>

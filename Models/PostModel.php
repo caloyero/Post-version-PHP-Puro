@@ -36,4 +36,18 @@ class PostModel
         $resultado = $this->conexion->getConexion()->query($consulta);
         return $resultado;
     }
+
+    public function listLikes($id_post)
+    {
+        $consulta = "SELECT likes FROM post WHERE post.id = $id_post";
+        $resultado = $this->conexion->getConexion()->query($consulta);
+        return $resultado;
+    }
+
+    public function darLikes($id_post,$likes)
+    {
+        $consulta = "UPDATE post SET likes='$likes' WHERE post.id = '$id_post'";
+        $resultado = $this->conexion->getConexion()->query($consulta);
+        return $resultado;
+    }
 }

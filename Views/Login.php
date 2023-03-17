@@ -32,7 +32,7 @@ include('../Controllers/UsuariosController.php');
                 <input class="login-button" type="submit" value="Login"
 
                 />
-                <a href="../Config/crearSession.php">iniciar Secicon</a>
+                <a href="../Views/createUsuario.php">Crear Una Cuenta</a>
             </form>
            <!--  {myLogin === 'true' && <Postlist />} -->
         </section>

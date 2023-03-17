@@ -4,12 +4,10 @@
 include('./header.php');
 session_start();
 $id = $_SESSION['id_usuario'];
-if($id == null || empty($id))
-{
-   
-   header('location:Login.php');
-   die();
-  
+if ($id == null || empty($id)) {
+
+    header('location:Login.php');
+    die();
 }
 ?>
 
@@ -29,10 +27,10 @@ if($id == null || empty($id))
             <div class="container-fotoDePortada" style="background-image: url('/* <?= $usuarioPerfil['foto_de_portada'] ?> */')">
 
                 <div class="container-perfil-images">
-                    <img class="fotoDePortada" src="<?= $usuarioPerfil['foto_de_portada'] ?>" />
+                    <img class="fotoDePortada" src="../ImagenPortada/<?= $usuarioPerfil['foto_de_portada'] ?>" />
 
                     <di class="container-user-name">
-                        <img class="fotoDePerfil" src="<?= $usuarioPerfil['foto_de_perfil'] ?>" />
+                        <img class="fotoDePerfil" src="../ImagenPerfil/<?= $usuarioPerfil['foto_de_perfil'] ?>" />
                         <h3 class="user-name"><?= $usuarioPerfil['nombre'] ?></h3>
                     </di>
 
@@ -42,9 +40,12 @@ if($id == null || empty($id))
                     <p class="usuario-name"><?= $usuarioPerfil['nombre'] ?></p>
                     <p><?= $usuarioPerfil['apellido'] ?></p>
                     <p><?= $usuarioPerfil['edad'] ?></p>
-                    <button><a href="../Config/cerrarSession.php">Cerrar Sesion</a></button>
-                    <button><a href="./creatPost.php">Crear Post</a></button>
-                    
+                    <div>
+                        <button><a href="../Config/cerrarSession.php">Cerrar Sesion</a></button>
+                        <button><a href="./creatPost.php">Crear Post</a></button>
+                        <button><a href="./updateUsuario.php">Actualizar Datos</a></button>
+                    </div>
+
                 </div>
 
             </div>
@@ -57,23 +58,23 @@ if($id == null || empty($id))
                     $post = new PostController();
 
                     $postByUsuarios = $post->showAllPostsById($id);
-                    foreach ($postByUsuarios as $posts){
-                        
+                    foreach ($postByUsuarios as $posts) {
+
                     ?>
 
                         <div class="head-post">
                             <img class="fotoDePerfil-post" src="<?= $posts["foto_de_perfil"] ?>" />
-                            <p class="nombreDePerfil-post"><?=$posts['nombre'] ?></p>
+                            <p class="nombreDePerfil-post"><?= $posts['nombre'] ?></p>
                         </div>
                         <div class="container-imagen-post">
-                            <img class="imagen-post" src="<?=$posts["imagen"]?>" />
+                            <img class="imagen-post" src="../ImagenesPost/<?= $posts["imagen"] ?>" />
                         </div>
                         <div class="container-contenido">
-                            <h2><?=$posts["titulo"]?></h2>
-                            <p><?=$posts["contenido"]?></p>
+                            <h2><?= $posts["titulo"] ?></h2>
+                            <p><?= $posts["contenido"] ?></p>
                         </div>
                         <div class="comentarios-count">
-                            <div>👍<?=$posts["likes"]?></div>
+                            <div>👍<?= $posts["likes"] ?></div>
                             <div>Comentarios</div>
                         </div>
                         <div class="comentarios-count">

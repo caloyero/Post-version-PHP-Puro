@@ -52,8 +52,23 @@
           $respuesta = $this->modelo->getConexion()->query($consulta);
           return $respuesta ->fetch_assoc();
     }
+
+    public function createUser($nombre,$apellido,$edad,$foto_de_perfil,$email,$password,$foto_de_portada)
+    {
+        $consulta = "INSERT INTO usuarios(id, nombre, apellido, edad, foto_de_perfil, email, password, foto_de_portada) 
+        VALUES ('NULL','$nombre','$apellido','$edad','$foto_de_perfil','$email','$password','$foto_de_portada')";
+        $respuesta = $this->modelo->getConexion()->query($consulta);
+        return $respuesta;
+    }
+
+    public function updateUsuario($id,$nombre,$apellido,$edad,$foto_de_perfil,$email,$password,$foto_de_portada)
+    {
+        $consulta = "UPDATE usuarios SET nombre='$nombre',apellido='$apellido',
+        edad='$edad',foto_de_perfil='$foto_de_perfil',email='$email',password='$password',foto_de_portada='$foto_de_portada' WHERE id = $id";
+         $respuesta = $this->modelo->getConexion()->query($consulta);
+         return $respuesta;
+    }
     
    }
-
    
 ?>

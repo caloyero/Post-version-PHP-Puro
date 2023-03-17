@@ -27,7 +27,7 @@ if ($id == null || empty($id)) {
                 ?>
 
                 <div class="head-post">
-                    <img class="fotoDePerfil-post" src="<?= $usuario["foto_de_perfil"] ?>" />
+                    <img class="fotoDePerfil-post" src="../ImagenPerfil/<?= $usuario["foto_de_perfil"] ?>" />
                     <p class="nombreDePerfil-post"><?= $usuario['nombre'] ?></p>
                 </div>
 
@@ -35,7 +35,8 @@ if ($id == null || empty($id)) {
                     <label for="titulo"> titulo</label>
                     <input type="text" name="titulo">
                     <label for="contenido"> contenido</label>
-                    <input type="text" name="contenido">
+                    <textarea type="text" name="contenido">
+                    </textarea>
                     <input type="hidden" name="usuarios_id" value="<?=$usuario['id']?>">
                     <input type="hidden" name="likes" value="0">
                     <label for="imagen"> imagen</label>

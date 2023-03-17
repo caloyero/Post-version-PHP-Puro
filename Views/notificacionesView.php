@@ -31,7 +31,7 @@ if ($id == null || empty($id)) {
 
                     <div class='container-notificaciones'>
                         <div>
-                            <img class='fotoDePerfil-post' src='<?= $notificaciones[$i]['foto_de_perfil'] ?>' />
+                            <img class='fotoDePerfil-post' src='../ImagenPerfil/<?= $notificaciones[$i]['foto_de_perfil'] ?>' />
                             <p class='notificacion-reaccion'>👍</p>
                         </div>
 
