@@ -57,20 +57,10 @@ if ($id == null || empty($id)) {
             <p><?= $result[$i]['contenido'] ?></p>
           </div>
           <div class="comentarios-count">
-
             <?php $likes = $result[$i]['likes'];
             $newLikes = $likes + 1;
             ?>
-            <form action="../Config/actions.php?accion=likes" method="post">
-              <input type="hidden" name="id" value="<?= $result[$i]['id'] ?>">
-              <input type="hidden" name="newLikes" value="<?= $newLikes  ?>">
-
-              <input type="button" value="👍">
-              <div> <?= $result[$i]['likes'] ?></div>
-            </form>
-            <div> <?= $result[$i]['likes'] ?></div>
-            <!--  <?= $newLikes ?> -->
-            <button class="btn-like" data-id="<?= $result[$i]['id'] ?>">Like</button>
+            <div> 👍<?= $result[$i]['likes'] ?></div>
 
             <div>Comentarios</div>
           </div>
@@ -79,23 +69,19 @@ if ($id == null || empty($id)) {
             <div>👍</div>
             <div>
               <li>
-                <a class="" href="./crearComentarios.php">💬 Comentarios</a>
+                <button class="" onclick ="comentar()">💬 Comentarios</button>
               </li>
             </div>
             <div>✈️ Compartir</div>
-            <button id="openModalButton" onclick="openModalButton()">Abrir modal</button>
+
 
           </div>
-          <!-- <div id="myModal" class="modal">
-            <div class="modal-background"></div>
-            <div class="modal-content">
-              
-              <h2>¡Bienvenido!</h2>
-              <p>Este es el contenido del modal.</p>
-              <button id="closeModalButton">Cerrar</button>
-
-            </div>
-          </div> -->
+          <div id="container-form" class="crearComentario"  >
+            <form   action="" method="post">
+              <input type="text" placeholder="Comentar">
+              <input type="button" value="Comentar">
+            </form>
+          </div>
 
         </div>
 
@@ -106,7 +92,7 @@ if ($id == null || empty($id)) {
     </div>
   </section>
 </body>
-<script src="../JS/index.js"></script>
+
 
 <!-- <script>
   $('.btn-like').on('click', function() {
