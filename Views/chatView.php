@@ -23,6 +23,7 @@ if ($id == null || empty($id)) {
                 $usuario_converzaciones = new ChatsController();
                 $perfil = $usuario_Perfil->showUsuariosByIdChat($id);
                 $converzaciones = $usuario_converzaciones->showConverzaciones($id);
+                
 
                 
                 ?>
@@ -36,7 +37,7 @@ if ($id == null || empty($id)) {
                      ?>
                     <div class="chat-user-info2">
                         <!-- <a href="./chatCreate.php?id_receptor=<?= $result['id'] ?>"> -->
-                            <img class="chat-user-info-image" src="<?= $result['foto_de_perfil'] ?>" />
+                            <img class="chat-user-info-image" src="../ImagenPerfil/<?= $result['foto_de_perfil'] ?>" />
                             <p><?= $result["nombre"] ?></p>
                             <p><?= $result["apellido"] ?></p>
                        <!--  </a> -->
@@ -44,8 +45,9 @@ if ($id == null || empty($id)) {
                 <?php } ?>
 
             </div>
-            <div class='container-chat'>
+            <!-- <div class='container-chat'>
                 <?php
+                if(empty($chat)){
                  for ($i = 0; $i < count($chat); $i++) {
                     if ($id_usuario == $chat[$i]['id_creador']) {
                         echo "
@@ -55,9 +57,9 @@ if ($id == null || empty($id)) {
                         echo "
                     <p style='text-align: center;border-radius: 15em 1em;padding: 1em;width:40%; margin-left: 45%;background-color:#8b9dc3;color:#f7f7f7'>" . $chat[$i]['mensaje'] . "</p>";
                     };
-                }
+                }}
                 "</div>" 
-                ?>
+                ?> -->
 
             </div>
     </section>

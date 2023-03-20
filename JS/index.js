@@ -23,11 +23,11 @@ document.appendChild(h1) */
 
 let form = document.getElementById('container-form');
 //form.style.display = 'none';
-form.addEventListener('click', comentar)
+form.addEventListener('click', comentar())
 
 function comentar()
 {
-  form.style.display = 'flex';
+  form.style.visibility = 'visible';
 }
 
 console.log(form)

@@ -60,14 +60,43 @@
         $respuesta = $this->modelo->getConexion()->query($consulta);
         return $respuesta;
     }
-
+/* 
     public function updateUsuario($id,$nombre,$apellido,$edad,$foto_de_perfil,$email,$password,$foto_de_portada)
     {
         $consulta = "UPDATE usuarios SET nombre='$nombre',apellido='$apellido',
         edad='$edad',foto_de_perfil='$foto_de_perfil',email='$email',password='$password',foto_de_portada='$foto_de_portada' WHERE id = $id";
          $respuesta = $this->modelo->getConexion()->query($consulta);
          return $respuesta;
-    }
+    } */
+
+    public function updateUsuario($id, $nombre, $apellido, $edad, $foto_de_perfil, $email, $password, $foto_de_portada)
+{
+  // Validar y sanear los datos ingresados por el usuario
+  $id = intval($id);
+  $nombre = mysqli_real_escape_string($this->modelo->getConexion(), $nombre);
+  $apellido = mysqli_real_escape_string($this->modelo->getConexion(), $apellido);
+  $edad = intval($edad);
+  $foto_de_perfil = mysqli_real_escape_string($this->modelo->getConexion(), $foto_de_perfil);
+  $email = mysqli_real_escape_string($this->modelo->getConexion(), $email);
+  $password = mysqli_real_escape_string($this->modelo->getConexion(), $password);
+  $foto_de_portada = mysqli_real_escape_string($this->modelo->getConexion(), $foto_de_portada);
+
+  // Verificar que los datos ingresados cumplan con las restricciones y reglas de validación definidas para cada campo en la base de datos
+
+  // Utilizar consultas preparadas
+  $consulta = "UPDATE usuarios SET nombre=?, apellido=?, edad=?, foto_de_perfil=?, email=?, password=?, foto_de_portada=? WHERE id=?";
+  $stmt = $this->modelo->getConexion()->prepare($consulta);
+  $stmt->bind_param("ssissssi", $nombre, $apellido, $edad, $foto_de_perfil, $email, $password, $foto_de_portada, $id);
+  $respuesta = $stmt->execute();
+
+  // Manejar adecuadamente los errores que puedan ocurrir durante la ejecución de la consulta SQL
+  if (!$respuesta) {
+    throw new Exception("Error al actualizar el usuario: " . $this->modelo->getConexion()->error);
+  }
+
+  return $respuesta;
+}
+
     
    }
    

@@ -21,10 +21,15 @@ if ($id == null || empty($id)) {
       <?php
 
       include('../Controllers/UsuariosController.php');
+      include('../Controllers/ComentariosController.php');
       $usuariosView = new UsuariosController();
       $result = $usuariosView->showUsuariosListByCreateChat();
+      $listComentarios = new ComentariosController();
 
-      for ($i = 0; $i < count($result); $i++) { ?>
+      for ($i = 0; $i < count($result); $i++) {
+
+
+      ?>
         <div class="user-home-list">
           <a href="./chatCreate.php?id_receptor=<?= $result[$i]['id'] ?>">
             <img class="chat-user-info-image" src="../ImagenPerfil/<?= $result[$i]['foto_de_perfil'] ?>" />
@@ -40,7 +45,9 @@ if ($id == null || empty($id)) {
       $postController = new PostController();
       $result = $postController->showAllPosts();
 
-      for ($i = 0; $i < count($result); $i++) { ?>
+      for ($i = 0; $i < count($result); $i++) {
+        $listComentario = $listComentarios->contarComentariosById($result[$i]['id'])
+      ?>
 
 
 
@@ -57,31 +64,26 @@ if ($id == null || empty($id)) {
             <p><?= $result[$i]['contenido'] ?></p>
           </div>
           <div class="comentarios-count">
-            <?php $likes = $result[$i]['likes'];
-            $newLikes = $likes + 1;
-            ?>
             <div> 👍<?= $result[$i]['likes'] ?></div>
-
-            <div>Comentarios</div>
+            <div>Comentarios <?= $listComentario ?></div>
           </div>
           <div class="comentarios-count">
-
-            <div>👍</div>
+            <form action="../Config/actions.php?accion=likes" method="post">
+              <input type="hidden" name="id_post" value="<?= $result[$i]['id'] ?>">
+              <input type="hidden" name="likes" value="<?= $result[$i]['likes'] ?>">
+              <input type="submit" value="👍">
+            </form>
             <div>
               <li>
-                <button class="" onclick ="comentar()">💬 Comentarios</button>
+                <!-- <button class="" onclick ="comentar()">💬 Comentarios</button> -->
+                <a href="./crearComentarios.php?post_id=<?= $result[$i]['id'] ?>">crear comentarios</a>
               </li>
             </div>
             <div>✈️ Compartir</div>
 
 
           </div>
-          <div id="container-form" class="crearComentario"  >
-            <form   action="" method="post">
-              <input type="text" placeholder="Comentar">
-              <input type="button" value="Comentar">
-            </form>
-          </div>
+
 
         </div>
 

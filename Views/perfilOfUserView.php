@@ -63,7 +63,7 @@ if ($id == null || empty($id)) {
                     ?>
 
                         <div class="head-post">
-                            <img class="fotoDePerfil-post" src="<?= $posts["foto_de_perfil"] ?>" />
+                            <img class="fotoDePerfil-post" src="../ImagenPerfil/<?= $posts["foto_de_perfil"] ?>" />
                             <p class="nombreDePerfil-post"><?= $posts['nombre'] ?></p>
                         </div>
                         <div class="container-imagen-post">

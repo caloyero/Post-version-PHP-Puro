@@ -39,7 +39,7 @@ if ($id == null || empty($id)) {
                 <div class='chat-user-info2'>
                     <p><?= $perfil_receptor['nombre'] ?></p>
                     <p><?= $perfil_receptor['apellido'] ?></p>
-                    <img class='chat-user-info-image' src="<?= $perfil_receptor['foto_de_perfil'] ?>" />
+                    <img class='chat-user-info-image' src="../ImagenPerfil/<?= $perfil_receptor['foto_de_perfil'] ?>" />
                 </div>
 
             </div>
@@ -50,13 +50,13 @@ if ($id == null || empty($id)) {
                     for ($i = 0; $i < count($chat); $i++) {
                         if ($id_usuario == $chat[$i]['id_creador']) { ?>
                             <div class="container-mensaje"> 
-                                <p style='text-align: center;border-radius: 1em 15em;padding: 1em;width:40%;margin-left: 5%;background-color:white;color:#6C4AB6'><?= $chat[$i]['mensaje'] ?><img class='chat-user-info-image2' src="<?= $perfil['foto_de_perfil'] ?>" /></p>
+                                <p style='text-align: center;border-radius: 1em 15em;padding: 1em;width:40%;margin-left: 5%;background-color:white;color:#6C4AB6'><?= $chat[$i]['mensaje'] ?><img class='chat-user-info-image2' src="../ImagenPerfil/<?= $perfil['foto_de_perfil'] ?>" /></p>
                             </div>
 
 
                         <?php } else { ?>
                             <div class="container-mensaje">
-                            <p style='text-align: center;border-radius: 15em 1em;padding: 1em;width:40%; margin-left: 45%;background-color:#CCD5AE;color:#AA77FF'><img class='chat-user-info-image2' src="<?= $perfil_receptor['foto_de_perfil'] ?>" /><?= $chat[$i]['mensaje'] ?></p>
+                            <p style='text-align: center;border-radius: 15em 1em;padding: 1em;width:40%; margin-left: 45%;background-color:#CCD5AE;color:#AA77FF'><img class='chat-user-info-image2' src="../ImagenPerfil/<?= $perfil_receptor['foto_de_perfil'] ?>" /><?= $chat[$i]['mensaje'] ?></p>
                             </div>
                             
                         <?php  } ?>
