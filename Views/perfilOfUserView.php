@@ -18,13 +18,14 @@ if ($id == null || empty($id)) {
             <?php
             include("../Controllers/UsuariosController.php");
             $usuarios = new UsuariosController();
-            $usuarioPerfil = $usuarios->showUsuariosForId($id);
+            $usuarioPerfil = $usuarios->showUsuariosById($id);
 
             //echo $usuarioPerfil['nombre'];
             ?>
 
 
-            <div class="container-fotoDePortada" style="background-image: url('/* <?= $usuarioPerfil['foto_de_portada'] ?> */')">
+            <div class="container-fotoDePortada"
+                style="background-image: url('/* <?= $usuarioPerfil['foto_de_portada'] ?> */')">
 
                 <div class="container-perfil-images">
                     <img class="fotoDePortada" src="../ImagenPortada/<?= $usuarioPerfil['foto_de_portada'] ?>" />
@@ -62,26 +63,26 @@ if ($id == null || empty($id)) {
 
                     ?>
 
-                        <div class="head-post">
-                            <img class="fotoDePerfil-post" src="../ImagenPerfil/<?= $posts["foto_de_perfil"] ?>" />
-                            <p class="nombreDePerfil-post"><?= $posts['nombre'] ?></p>
-                        </div>
-                        <div class="container-imagen-post">
-                            <img class="imagen-post" src="../ImagenesPost/<?= $posts["imagen"] ?>" />
-                        </div>
-                        <div class="container-contenido">
-                            <h2><?= $posts["titulo"] ?></h2>
-                            <p><?= $posts["contenido"] ?></p>
-                        </div>
-                        <div class="comentarios-count">
-                            <div>👍<?= $posts["likes"] ?></div>
-                            <div>Comentarios</div>
-                        </div>
-                        <div class="comentarios-count">
-                            <div>👍</div>
-                            <div> 💬 Comentarios</div>
-                            <div>✈️ Compartir</div>
-                        </div>
+                    <div class="head-post">
+                        <img class="fotoDePerfil-post" src="../ImagenPerfil/<?= $posts["foto_de_perfil"] ?>" />
+                        <p class="nombreDePerfil-post"><?= $posts['nombre'] ?></p>
+                    </div>
+                    <div class="container-imagen-post">
+                        <img class="imagen-post" src="../ImagenesPost/<?= $posts["imagen"] ?>" />
+                    </div>
+                    <div class="container-contenido">
+                        <h2><?= $posts["titulo"] ?></h2>
+                        <p><?= $posts["contenido"] ?></p>
+                    </div>
+                    <div class="comentarios-count">
+                        <div>👍<?= $posts["likes"] ?></div>
+                        <div>Comentarios</div>
+                    </div>
+                    <div class="comentarios-count">
+                        <div>👍</div>
+                        <div> 💬 Comentarios</div>
+                        <div>✈️ Compartir</div>
+                    </div>
                     <?php } ?>
                 </div>
             </div>

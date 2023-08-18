@@ -1,8 +1,10 @@
 :root {
-    --Primario: #6C4AB6;
-    --Secundario: #8D9EFF;
+    --Primario: #c8d6e5;
+    --Secundario: #576574;
     --Terciario: #8b9dc32f;
-    --Fondo: #f7f7f7
+    --Fondo: #f7f7f7;
+    --Fondo1: #fff;
+    --Font: 'Montserrat', sans-serif;
   }
 
   /* *{
@@ -61,8 +63,10 @@
     height:450px;
     margin-top: 3rem;
     border-radius: 1%;
-    overflow: scroll;
+    overflow-y: scroll; /* Mantenemos el desplazamiento vertical */
+    overflow-x: hidden; /* Ocultamos el desplazamiento horizontal */
 }
+
 
 .comentarios{
     display: flex;
@@ -85,8 +89,8 @@
 .form-comentarios
 {
     display: flex;
-    width: 150%;
-    padding: 1rem;
+    width: 75%;
+    padding-top: 5rem;
     /* background-color: #6C4AB6;
  */
 }
@@ -94,9 +98,9 @@
 .boton-comentarios
 {
     margin-left: 1rem;
-    background: linear-gradient(
+    /* background: linear-gradient(
         50deg, rgb(58, 129, 81),rgba(105, 84, 84, 0.493)
-    );
+    ); */
     color: #f7f7f7;
     border-radius: 1rem;
     border-style: none;
@@ -153,6 +157,7 @@ p{
   height: 100vh;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
  /*  background-color: #f5f6f7; */
 }  
 
@@ -317,6 +322,9 @@ h6
     color: #636469f7;
 }
 
+li{
+    list-style: none;
+}
 /* Login */
 
 .login
@@ -382,6 +390,7 @@ h6
     display: flex;
     /* justify-content: center; */
     width: 100%;
+    overflow: hidden;
     /* flex-direction: column; */ 
 }
 
@@ -458,6 +467,20 @@ h6
     border-radius: 15px;
     position: fixed;
     overflow: scroll;
+}
+
+/* Ocultar la barra de desplazamiento */
+.user-home::-webkit-scrollbar {
+    width: 0.5em; /* Ancho de la barra de desplazamiento */
+}
+
+.user-home::-webkit-scrollbar-track {
+    background-color: transparent; /* Color de fondo de la barra de desplazamiento */
+}
+
+.user-home::-webkit-scrollbar-thumb {
+    background-color: var(--Secundario); /* Color del 'pulgar' de la barra de desplazamiento */
+    border-radius: 0.5em; /* Borde redondeado del 'pulgar' */
 }
 .user-home > h2
 {
@@ -608,10 +631,46 @@ h6
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
-    border-top: solid 1px black;
+    border-top: solid 1px;
+    border-color: var(--Terciario);
     padding-top: 1%;
     padding-bottom: 1%;
-    /* background-color: aqua; */
+/*     font-family: var(--Font);
+ */    /* background-color: aqua; */
+}
+
+.comentarios-count p{
+    font-family: var(--Font);
+    display: inline-block;
+    padding-left: 3px;
+}
+
+.comentarios-btn
+{
+    background-color: var(--Fondo1);
+    border-style: hidden;
+}
+
+.container-comentarios
+{
+    height: 50vh;
+    width:100%;
+    background-color: var(--Terciario);
+    overflow: scroll;
+    padding-left: 2em;
+    box-sizing: border-box;
+    display: none;
+}
+.show-comentarios
+{
+    display: block;
+}
+
+.btn-likes
+{
+    
+    background-color: var(--Fondo1);
+    border-style: none;
 }
 .notificaciones
 {

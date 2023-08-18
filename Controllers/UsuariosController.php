@@ -19,9 +19,9 @@ class UsuariosController
       return $result;
    }
 
-   public function showUsuariosForId($id)
+   public function showUsuariosById($id)
    {
-      $result = $this->model->getUsuariosForId($id);
+      $result = $this->model->getUsuariosById($id);
       return $result;
    }
 
@@ -78,7 +78,7 @@ class UsuariosController
 
    public function actualizarUsuario($id, $nombre, $apellido, $edad, $foto_de_perfil, $email, $password, $foto_de_portada)
    {
-      $result = $this->model->updateUsuario($id,$nombre,$apellido,$edad,$foto_de_perfil,$email,$password,$foto_de_portada);
+      $result = $this->model->updateUsuario($id, $nombre, $apellido, $edad, $foto_de_perfil, $email, $password, $foto_de_portada);
       return $result;
    }
 }
